@@ -18,14 +18,16 @@ kubectl create namespace monitoring
 kubectl create -f k8s-prometheus/clusterRole.yaml
 kubectl create -f k8s-prometheus/config-map.yaml
 kubectl create -f k8s-prometheus/prometheus-deployment.yaml 
+kubectl create -f k8s-prometheus/prometheus-deployment.yaml 
+
 kubectl create -f k8s-prometheus/prometheus-service.yaml --namespace=monitoring
 
+kubectl apply -f k8s-node-exporter/
 kubectl apply -f kube-state-metrics/
-
 kubectl create -f k8s-grafana/
 ```
 
-Depois acesse http://192.168.1.10:32000/ (Grafana)
+Depois acesse http://localhost/grafana (Grafana)
 
 Usuario: admin
 
@@ -39,5 +41,10 @@ ID: 12740
 
 ou copie o conteudo desse arquivo "k8s-grafana/grafana-dashboard-kubernetes.json"
 e importe no grafana.
+
+
+Using Kubectl port forwarding
+
+kubectl port-forward prometheus-monitoring-pod 8080:9090 -n monitoring
 
 

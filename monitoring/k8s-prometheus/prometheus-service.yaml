@@ -6,7 +6,6 @@ metadata:
   annotations:
       prometheus.io/scrape: 'true'
       prometheus.io/port:   '9090'
-      prometheus.io/scheme: http
 spec:
   selector: 
     app: prometheus-server
@@ -14,4 +13,4 @@ spec:
   ports:
     - port: 8080
       targetPort: 9090 
-      nodePort: 30000
+      nodePort: 30000      
