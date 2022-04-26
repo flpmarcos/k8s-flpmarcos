@@ -5,10 +5,12 @@ Create a Kubernetes Cluster.
 # kubernetes:
 
 ### TIPOS DE SERVIÇOS
-ClusterIP -> Gera comunicacao interna (Banco de dados -> API)
-NodePort -> Cria uma rede com acesso externo, Acesso geralmente realizado por porta
+- ClusterIP -> Gera comunicacao interna (Banco de dados -> API)
+
+- NodePort -> Cria uma rede com acesso externo, Acesso geralmente realizado por porta
             Range de porta 30000-32777
-LoadBalancer -> Cria um rede com acesso Wan, Geralmente utilizado para servicos em nuvem
+
+- LoadBalancer -> Cria um rede com acesso Wan, Geralmente utilizado para servicos em nuvem
 
 ## KUBECTL
 
