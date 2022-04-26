@@ -1,5 +1,5 @@
 # k8s-flpmarcos
-Create a Kubernetes Cluster.
+Estudos de k8s utilizando kubernetes local com kind
 
 
 # kubernetes:
@@ -12,9 +12,13 @@ Create a Kubernetes Cluster.
 
 - LoadBalancer -> Cria um rede com acesso Wan, Geralmente utilizado para servicos em nuvem
 
+
+## Alias
+
 ## KUBECTL
 
 - Listar servicos
+
 kubectl get services
 
 

@@ -13,7 +13,7 @@ spec:
   - http:
       paths:
       - pathType: Prefix
-        path: "/graph"
+        path: "/"
         backend:
           service:
             name: prometheus-service
