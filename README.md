@@ -14,6 +14,17 @@ Estudos de k8s utilizando kubernetes local com kind
 
 
 ## Alias
+apt-get install -y bash-completion
+
+source /etc/bash_completion
+
+source <(kubectl completion bash) # configura o autocomplete na sua sessão atual (antes, certifique-se de ter instalado o pacote bash-completion).
+
+echo "source <(kubectl completion bash)" >> ~/.bashrc # add autocomplete permanentemente ao seu shell.
+source <(kubectl completion bash)
+
+alias k=kubectl
+complete -F __start_kubectl k
 
 ## KUBECTL
 
