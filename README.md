@@ -26,6 +26,27 @@ source <(kubectl completion bash)
 alias k=kubectl
 complete -F __start_kubectl k
 
+## Teste de stress
+EX: Limite no deployment
+
+resources:
+  limits:
+    memory: "256Mi"
+    cpu: "200m"
+  requests:
+    memory: "128Mi"
+    cpu: "50m"
+
+Acessr o pod
+kubectl exec -ti nginx-f89759699-77v8b -- /bin/bash
+instalar a lib do teste
+apt-get update && apt-get install -y stress
+
+executar o teste (Aqui estamos stressando o contêiner, utilizando 128M de RAM e um core de CPU. Brinque de acordo com os limites que você estabeleceu.)
+stress --vm 1 --vm-bytes 128M --cpu 1
+
+Atenção!!! 1 core de CPU corresponde a 1000m (1000 milicore). Ao especificar 200m, estamos querendo reservar 20% de 1 core da CPU. Se fosse informado o valor 0.2 teria o mesmo efeito, ou seja, seria reservado 20% de 1 core da CPU.
+
 ## KUBECTL
 
 - Listar servicos
