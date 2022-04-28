@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jenkins-ui
+  namespace: devops-tools
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    # nginx.ingress.kubernetes.io/rewrite-target: "/"
+    # nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    # nginx.ingress.kubernetes.io/configuration-snippet: |
+    #   rewrite ^(/jenkins)$ http://$best_http_host$1/ permanent;
+spec:
+  rules:
+  - host: jenkins.localhost
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: jenkins-service
+              port:
+                number: 8080

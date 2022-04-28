@@ -47,6 +47,9 @@ stress --vm 1 --vm-bytes 128M --cpu 1
 
 Atenção!!! 1 core de CPU corresponde a 1000m (1000 milicore). Ao especificar 200m, estamos querendo reservar 20% de 1 core da CPU. Se fosse informado o valor 0.2 teria o mesmo efeito, ou seja, seria reservado 20% de 1 core da CPU.
 
+echo 'Z2lyb3BvcHMgc3RyaWd1cyBnaXJ1cw==' | base64 --decode
+
+
 ## KUBECTL
 
 - Listar servicos
