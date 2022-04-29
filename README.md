@@ -58,16 +58,16 @@ alias k=kubectl
 complete -F __start_kubectl k
 ```
 
+- Arquivo de configuracao para acesso do kubectl no cluster kubernetes
+```
+.kube/config
+```
 
 - Listar servicos
 ```
 kubectl get services
 ```
 
-- Arquivo de configuracao para acesso do kubectl no cluster kubernetes
-```
-.kube/config
-```
 - Listar nós do cluster
 ```
 kubectl get nodes
@@ -153,53 +153,48 @@ echo 'Z2lyb3BvcHMgc3RyaWd1cyBnaXJ1cw==' | base64 --decode
 
 
 
-# NAMESPACE
-## Monitoring - Prometheus e Grafana
+## NAMESPACE
+### Monitoring - Prometheus e Grafana
 
-Para subir a stack de Monitoramento no kubernetes 
-Acesse a raiz do repositorio e Execute:
+- Criando namespace
 
 ```
-kubectl create namespace monitoring
+kubectl create -f monitoring-namespace.yaml
+```
 
-kubectl create -f k8s-prometheus/clusterRole.yaml
-kubectl create -f k8s-prometheus/config-map.yaml
-kubectl create -f k8s-prometheus/prometheus-deployment.yaml 
-kubectl create -f k8s-prometheus/prometheus-deployment.yaml 
+- PROMETHEUS
+```
+kubectl create -f k8s-prometheus/
+```
+  - host: prometheus.localhost
 
-kubectl create -f k8s-prometheus/prometheus-service.yaml --namespace=monitoring
-
-kubectl apply -f k8s-node-exporter/
-kubectl apply -f kube-state-metrics/
+- GRAFANA
+```
 kubectl create -f k8s-grafana/
 ```
+  - host: grafana.localhost
+  - Importe o dashboard do GrafanaLabs (https://grafana.com/grafana/dashboards/12740)
 
-Depois acesse http://grafana.localhost (Grafana)
+- NODE EXPORTER
+```
+kubectl apply -f k8s-node-exporter/
+```
 
-Usuario: admin
+- STATE METRICS
+```
+kubectl apply -f kube-state-metrics/
+```
 
-Senha: admin
+### DEVOPS-TOOLS - JENKINS
+- JENKINS
+```
+kubectl create -f k8s-jenkins/
+```
+  - host: jenkins.localhost
 
-Importe o dashboard do GrafanaLabs (https://grafana.com/grafana/dashboards/12740)
+### MESSAGE-QUEUE 
 
-ID: 12740
-
-![Image of Dashboard on GrafanaLabs](/monitoring/k8s-grafana/GrafanaDashboardImg.png)
-
-ou copie o conteudo desse arquivo "k8s-grafana/grafana-dashboard-kubernetes.json"
-e importe no grafana.
-
-
-Using Kubectl port forwarding
-
-kubectl port-forward prometheus-monitoring-pod 8080:9090 -n monitoring
-
-## DEVOPS-TOOLS - JENKINS
-
-
-## MESSAGE-QUEUE 
-
-## VOIP - KAMAILIO / ASTERISK (BETA)
+### VOIP - KAMAILIO / ASTERISK (BETA)
 
 Telefonia em ambiente kubernetes utilizando 
 
