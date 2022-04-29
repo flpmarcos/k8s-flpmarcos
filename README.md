@@ -4,7 +4,7 @@ Estudos de k8s utilizando kubernetes local com kind no WSL
 
 ## KIND
 
-- kind é utilizado para simular um ambiente kubernetes local usando container mais parecido com o ambiente de PRD possivel
+kind é utilizado para simular um ambiente kubernetes local usando container mais parecido com o ambiente de PRD possivel
 
 ```
 ### Download the latest version of KinD
@@ -18,7 +18,7 @@ sudo mv ./kind /usr/local/bin/
 
 ### CLUSTER
 
-- Criar primeiro cluster kubernetes
+- Criar cluster kubernetes
 ```
 kind create cluster --name meucluster --config cluster.yaml
 ```
@@ -41,8 +41,7 @@ kind delete cluster --name meucluster
 
 ## KUBECTL
 
-
-### Criando Alias para facilitar o trabalho
+#### Alias - Para facilitar o trabalho
 
 ```
 apt-get install -y bash-completion
@@ -166,14 +165,14 @@ kubectl create -f monitoring-namespace.yaml
 ```
 kubectl create -f k8s-prometheus/
 ```
-  - host: prometheus.localhost
+host: prometheus.localhost
 
 - GRAFANA
 ```
 kubectl create -f k8s-grafana/
 ```
-  - host: grafana.localhost
-  - Importe o dashboard do GrafanaLabs (https://grafana.com/grafana/dashboards/12740)
+host: grafana.localhost
+Importe o dashboard do GrafanaLabs (https://grafana.com/grafana/dashboards/12740)
 
 - NODE EXPORTER
 ```
@@ -190,7 +189,7 @@ kubectl apply -f kube-state-metrics/
 ```
 kubectl create -f k8s-jenkins/
 ```
-  - host: jenkins.localhost
+host: jenkins.localhost
 
 ### MESSAGE-QUEUE 
 
