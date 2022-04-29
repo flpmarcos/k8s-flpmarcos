@@ -12,10 +12,12 @@ Estudos de k8s utilizando kubernetes local com kind no WSL
 | Kubectl - Alias | ✅  |
 | Kubectl - Comandos  | ✅  |
 | Deployment - Teste de Stress no POD  | ✅  |
-| K8S - Criar ambiente de montiroramento  | ✅  |
-| K8S - Criar CI e CD (Harvor / Repositório / Jenkins)  |  ⌛  |
-| K8S - Criar Ambiente de Filas (rabbitmq / kafka)  |  ⌛  |
-| K8S - Criar Ambiente VOIP (Kamailio / Asterisk)  |  ⌛  |
+| Ingress - Definir sub-dominio para as aplicações   | ✅  |
+| Monitoramento - Criar ambiente (Grafana / Prometheus)  | ✅  |
+| Monitoramento - Config map grafana.ini   | ✅  |
+| CI/CD - Criar ambiente (Harvor / Repositório / Jenkins)  |  ⌛  |
+| Filas - Criar Ambiente  (rabbitmq / kafka)  |  ⌛  |
+| VOIP - Criar Ambiente  (Kamailio / Asterisk)  |  ⌛  |
 
 
 
