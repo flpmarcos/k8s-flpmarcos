@@ -2,7 +2,7 @@
 Estudos de k8s utilizando kubernetes local com kind no WSL
 
 
-## k8s TRAILHEAD
+## K8S -  TRAILHEAD
 
 | Feature  | Status |
 | ------------- | ------------- |
