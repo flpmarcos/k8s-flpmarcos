@@ -6,16 +6,16 @@ Estudos de k8s utilizando kubernetes local com kind no WSL
 
 | Feature  | Status |
 | ------------- | ------------- |
-| Instalando o kind  | ✅  |
-| Subindo Cluster  | ✅  |
+| KIND - Instalacao  | ✅  |
+| KIND - Cluster  | ✅  |
 | Kubectl - Instalando | ✅  |
 | Kubectl - Alias | ✅  |
 | Kubectl - Comandos  | ✅  |
 | Deployment - Teste de Stress no POD  | ✅  |
 | K8S - Criar ambiente de montiroramento  | ✅  |
-| K8S - Criar CI e CD  |  ⌛  |
-| K8S - Criar Ambiente de Filas  |  ⌛  |
-| K8S - Criar Ambiente VOIP  |  ⌛  |
+| K8S - Criar CI e CD (Harvor / Repositório / Jenkins)  |  ⌛  |
+| K8S - Criar Ambiente de Filas (rabbitmq / kafka)  |  ⌛  |
+| K8S - Criar Ambiente VOIP (Kamailio / Asterisk)  |  ⌛  |
 
 
 
