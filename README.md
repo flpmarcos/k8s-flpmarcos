@@ -15,8 +15,8 @@ Estudos de k8s utilizando kubernetes local com kind no WSL
 | Ingress - Definir sub-dominio para as aplicações   | ✅  |
 | Monitoramento - Criar ambiente (Grafana / Prometheus)  | ✅  |
 | Monitoramento - Config map grafana.ini   | ✅  |
-| CI/CD - Criar ambiente (Harvor / Repositório / Jenkins)  |  ⌛  |
-| Filas - Criar Ambiente  (rabbitmq / kafka)  |  ⌛  |
+| CI/CD - Criar ambiente (Harbor / Repositório / Jenkins)  |  ⌛  |
+| Filas - Criar Ambiente  (Rabbitmq / Kafka)  |  ⌛  |
 | VOIP - Criar Ambiente  (Kamailio / Asterisk)  |  ⌛  |
 | RANCHER - Orquestrar outros clusters  |  ⌛  |
 | TERRAFORM  |  ⌛  |
