@@ -198,3 +198,16 @@ host: jenkins.localhost
 Telefonia em ambiente kubernetes utilizando 
 
 Kamalio + Asterisk
+
+# REFERÊNCIAS
+```
+https://livro.descomplicandokubernetes.com.br/pt/day_one/descomplicando_kubernetes.html
+
+https://kubernetes.io/blog/2020/05/21/wsl-docker-kubernetes-on-the-windows-desktop/
+
+https://phoenixnap.com/kb/prometheus-kubernetes-monitoring
+
+https://devopscube.com/kubernetes-ingress-tutorial/
+
+
+```
