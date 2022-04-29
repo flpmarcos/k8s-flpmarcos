@@ -1,5 +1,5 @@
 # k8s-flpmarcos
-Estudos de k8s utilizando kubernetes local com kind no WSL
+Estudos de k8s utilizando kubernetes local com kind no WSL (Debian)
 
 
 ## K8S -  TRAILHEAD
@@ -15,7 +15,7 @@ Estudos de k8s utilizando kubernetes local com kind no WSL
 | Ingress - Definir sub-dominio para as aplicações   | ✅  |
 | Monitoramento - Criar ambiente (Grafana / Prometheus)  | ✅  |
 | Monitoramento - Config map grafana.ini   | ✅  |
-| CI/CD - Criar ambiente (Harbor / Repositório / Jenkins)  |  ⌛  |
+| CI/CD - Criar ambiente (Harbor / Repositório / Jenkins ✅)  |  ⌛  |
 | Filas - Criar Ambiente  (Rabbitmq / Kafka)  |  ⌛  |
 | VOIP - Criar Ambiente  (Kamailio / Asterisk)  |  ⌛  |
 | RANCHER - Orquestrar outros clusters  |  ⌛  |
