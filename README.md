@@ -155,49 +155,74 @@ echo 'Z2lyb3BvcHMgc3RyaWd1cyBnaXJ1cw==' | base64 --decode
 ## NAMESPACE
 ### Monitoring - Prometheus e Grafana
 
-- Criando namespace
+#### Criando namespace
 
 ```
 kubectl create -f monitoring-namespace.yaml
 ```
 
-- PROMETHEUS
+#### PROMETHEUS
 ```
 kubectl create -f k8s-prometheus/
 ```
 host: prometheus.localhost
 
-- GRAFANA
+#### GRAFANA
 ```
 kubectl create -f k8s-grafana/
 ```
 host: grafana.localhost
 Importe o dashboard do GrafanaLabs (https://grafana.com/grafana/dashboards/12740)
 
-- NODE EXPORTER
+#### NODE EXPORTER
 ```
 kubectl apply -f k8s-node-exporter/
 ```
 
-- STATE METRICS
+#### STATE METRICS
 ```
 kubectl apply -f kube-state-metrics/
 ```
 
-### DEVOPS-TOOLS - JENKINS
-- JENKINS
+### DEVOPS-TOOLS 
+#### Criando namespace
+
+```
+kubectl create -f devops-tools-namespace.yaml
+```
+
+#### JENKINS
 ```
 kubectl create -f k8s-jenkins/
 ```
 host: jenkins.localhost
 
 ### MESSAGE-QUEUE 
+#### Criando namespace
+
+```
+kubectl create -f message-queue-namespace.yaml
+```
+
+#### RABBITMQ
+```
+kubectl create -f k8s-rabbitmq/
+```
+
 
 ### VOIP - KAMAILIO / ASTERISK (BETA)
 
-Telefonia em ambiente kubernetes utilizando 
+#### Criando namespace
 
-Kamalio + Asterisk
+```
+kubectl create -f voip-namespace.yaml
+```
+
+#### KAMAILIO / ASTERISK
+```
+kubectl create -f k8s-kamailio-asterisk/
+```
+
 
 # REFERÊNCIAS
 ```
