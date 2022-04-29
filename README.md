@@ -18,7 +18,8 @@ Estudos de k8s utilizando kubernetes local com kind no WSL
 | CI/CD - Criar ambiente (Harvor / Repositório / Jenkins)  |  ⌛  |
 | Filas - Criar Ambiente  (rabbitmq / kafka)  |  ⌛  |
 | VOIP - Criar Ambiente  (Kamailio / Asterisk)  |  ⌛  |
-
+| RANCHER - Orquestrar outros clusters  |  ⌛  |
+| TERRAFORM  |  ⌛  |
 
 
 ## KIND
