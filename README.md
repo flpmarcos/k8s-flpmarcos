@@ -2,6 +2,23 @@
 Estudos de k8s utilizando kubernetes local com kind no WSL
 
 
+## k8s TRAILHEAD
+
+| Feature  | Status |
+| ------------- | ------------- |
+| Instalando o kind  | ✅  |
+| Subindo Cluster  | ✅  |
+| Kubectl - Instalando | ✅  |
+| Kubectl - Alias | ✅  |
+| Kubectl - Comandos  | ✅  |
+| Deployment - Teste de Stress no POD  | ✅  |
+| K8S - Criar ambiente de montiroramento  | ✅  |
+| K8S - Criar CI e CD  |  ⌛  |
+| K8S - Criar Ambiente de Filas  |  ⌛  |
+| K8S - Criar Ambiente VOIP  |  ⌛  |
+
+
+
 ## KIND
 
 kind é utilizado para simular um ambiente kubernetes local usando container mais parecido com o ambiente de PRD possivel
@@ -16,7 +33,7 @@ sudo mv ./kind /usr/local/bin/
 ```
 
 
-### CLUSTER
+## CLUSTER
 
 - Criar cluster kubernetes
 ```
