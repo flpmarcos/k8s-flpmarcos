@@ -19,7 +19,8 @@ Estudos de k8s utilizando kubernetes local com kind no WSL
 | Filas - Criar Ambiente  (Rabbitmq / Kafka)  |  ⌛  |
 | VOIP - Criar Ambiente  (Kamailio / Asterisk)  |  ⌛  |
 | RANCHER - Orquestrar outros clusters  |  ⌛  |
-| TERRAFORM  |  ⌛  |
+| TERRAFORM - Infra as Code |  ⌛  |
+| ISTIO - Service Mesh |  ⌛  |
 
 
 ## KIND
