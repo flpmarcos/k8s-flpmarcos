@@ -120,7 +120,11 @@ kind get clusters
 kind delete cluster --name meucluster
 
 
+## CLUSTER
 
+Define um cluster especifico
+
+k cluster-info --context kind-cluster-rancher
 
 
 
