@@ -11,7 +11,7 @@ metadata:
 spec:
   rules:
   # Use the host you used in your kubernetes Ingress Configurations
-  - host: prometheus.localhost
+  - host: prometheus.k8slocal.com
     http:
       paths:
       - pathType: Prefix

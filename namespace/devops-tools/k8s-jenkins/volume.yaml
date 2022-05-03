@@ -30,7 +30,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - clusterdosdeuses-worker
+          - node-01
 
 ---
 apiVersion: v1

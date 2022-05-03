@@ -93,6 +93,13 @@ ln -sf "/mnt/c/users/$windowsUser/.kube/config" ~/.kube/config
 kubectl version
 ```
 
+## WINDOWS virtual host 
+
+c:\WINDOWS\system32\drivers\etc\
+
+172.16.8.12 grafana.k8slocal.com
+172.16.8.12 prometheus.k8slocal.com
+172.16.8.12 jenkins.k8slocal.com
 
 #### Alias - Para facilitar o trabalho
 
@@ -218,13 +225,13 @@ kubectl create -f monitoring-namespace.yaml
 ```
 kubectl create -f k8s-prometheus/
 ```
-host: prometheus.localhost
+host: prometheus.k8slocal.com
 
 #### GRAFANA
 ```
 kubectl create -f k8s-grafana/
 ```
-host: grafana.localhost
+host: grafana.k8slocal.com
 Importe o dashboard do GrafanaLabs (https://grafana.com/grafana/dashboards/12740)
 
 #### NODE EXPORTER
@@ -248,7 +255,15 @@ kubectl create -f devops-tools-namespace.yaml
 ```
 kubectl create -f k8s-jenkins/
 ```
-host: jenkins.localhost
+host: jenkins.k8slocal.com
+
+Obter Passoword
+
+```
+kubectl get pods -n devops-tools
+kubectl exec {POD_NAME} cat /var/jenkins_home/secrets/initialAdminPassword
+```
+
 
 ### MESSAGE-QUEUE 
 #### Criando namespace
@@ -289,5 +304,6 @@ https://devopscube.com/kubernetes-ingress-tutorial/
 
 https://github.com/flpmarcos/vagrant-kubernetes-cluster
 
+https://cirolini.medium.com/entrega-continua-com-kubernetes-e-jenkins-84bd9834a749
 
 ```

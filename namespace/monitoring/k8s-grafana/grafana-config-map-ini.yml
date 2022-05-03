@@ -235,7 +235,7 @@ data:
     ;cert_file =
     ;key_file =
     ;skip_verify = false
-    ;from_address = admin@grafana.localhost
+    ;from_address = admin@grafana.k8slocal.com
     ;from_name = Grafana
     [emails]
     ;welcome_email_on_sign_up = false

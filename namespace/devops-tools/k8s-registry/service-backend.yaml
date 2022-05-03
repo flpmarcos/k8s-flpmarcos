@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: registry
+  namespace: devops-tools
+  labels:
+    app: registry
+spec:
+  ports:
+    - port: 5000
+      targetPort: 5000
+      nodePort: 30400
+      name: registry
+  selector:
+    app: registry
+  type: NodePort
