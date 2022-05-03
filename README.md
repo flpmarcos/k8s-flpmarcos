@@ -58,6 +58,23 @@ k cluster-info --context kind-cluster-rancher
 kind delete cluster --name meucluster
 ```
 
+## VAGRANT
+
+# Usage
+
+To create VMs and bootstrap your kubernetes cluster
+
+`vagrant up`
+
+After creation of VMs is complete ssh into master and check kubernetes cluster status
+
+`vagrant ssh master`
+
+`kubectl get nodes`
+
+After deployment you can check your page with 
+
+`curl http://<worker-ip>:30080`
 
 
 ## KUBECTL
@@ -269,6 +286,8 @@ https://kubernetes.io/blog/2020/05/21/wsl-docker-kubernetes-on-the-windows-deskt
 https://phoenixnap.com/kb/prometheus-kubernetes-monitoring
 
 https://devopscube.com/kubernetes-ingress-tutorial/
+
+https://github.com/flpmarcos/vagrant-kubernetes-cluster
 
 
 ```
