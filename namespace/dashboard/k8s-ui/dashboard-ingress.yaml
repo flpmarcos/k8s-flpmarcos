@@ -16,4 +16,4 @@ spec:
             service:
               name: kubernetes-dashboard
               port:
-                number: 8443                            
+                number: 443                  
