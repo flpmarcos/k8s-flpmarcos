@@ -15,7 +15,7 @@ Estudos de k8s utilizando kubernetes local com kind no WSL (Debian)
 | Ingress - Definir sub-dominio para as aplicações   | ✅  |
 | Monitoramento - Criar ambiente (Grafana / Prometheus)  | ✅  |
 | Monitoramento - Config map grafana.ini   | ✅  |
-| CI/CD - Criar ambiente (Harbor / Repositório / Jenkins ✅)  |  ⌛  |
+| CI/CD - Criar ambiente (Registry ✅ / Jenkins ✅)  |  ⌛  |
 | Filas - Criar Ambiente  (Rabbitmq / Kafka)  |  ⌛  |
 | VOIP - Criar Ambiente  (Kamailio / Asterisk)  |  ⌛  |
 | RANCHER - Orquestrar outros clusters  |  ⌛  |
