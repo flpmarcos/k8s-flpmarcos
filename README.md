@@ -21,7 +21,7 @@ Estudos de k8s utilizando kubernetes local com kind no WSL (Debian)
 | RANCHER - Orquestrar outros clusters  |  ⌛  |
 | TERRAFORM - Infra as Code |  ⌛  |
 | ISTIO - Service Mesh |  ⌛  |
-| IAC - Provisionar ambiente K8S usando Vagrant   |  ⌛  |
+| IAC - Provisionar ambiente K8S usando Vagrant   |  ✅  |
 
 ## KIND
 
