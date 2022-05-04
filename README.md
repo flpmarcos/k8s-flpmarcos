@@ -35,10 +35,10 @@ The host must have :
 ## Clone the repo
 ```sh
 # Clone the repo and change directory
-git clone git@github.com:thkevin/kubernetes_vms_lab.git
+git clone git@github.com:flpmarcos/k8s-flpmarcos.git
 
 # Get into the project directory
-cd kubernetes_vms_lab
+cd k8s-flpmarcos
 ```
 
 ## VAGRANT
