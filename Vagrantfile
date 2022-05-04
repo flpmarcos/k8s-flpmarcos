@@ -1,46 +1,65 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-MASTER_IP       = "172.16.8.10"
-NODE_01_IP      = "172.16.8.11"
-NODE_02_IP      = "172.16.8.12"
-NODE_03_IP      = "172.16.8.13"
+
+CP_NODE_COUNT = 1
+
+NODES_NAMES = ["node-1", "node-2", "node-3"]
+NODES_COUNT = NODES_NAMES.size
+
+NODES_VM_NAMES = (1..NODES_COUNT).map{|i| "node-#{i}"}
+
+Vagrant.require_version ">= 2.2.0"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "geerlingguy/ubuntu2004"
   config.vm.box_version = "1.0.3"
+  
+  # Shared virtualbox settings
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 2048
+    v.cpus = 1
+  end
 
-  boxes = [
-    { :name => "master",  :ip => MASTER_IP,  :cpus => 1, :memory => 2048 },
-    { :name => "node-01", :ip => NODE_01_IP, :cpus => 1, :memory => 2048 },
-    { :name => "node-02", :ip => NODE_02_IP, :cpus => 1, :memory => 2048 },
-    { :name => "node-03", :ip => NODE_03_IP, :cpus => 1, :memory => 2048 }
-  ]
 
-  boxes.each do |opts|
-    config.vm.define opts[:name] do |box|
-      box.vm.hostname = opts[:name]
-      box.vm.network :private_network, ip: opts[:ip]
- 
-      box.vm.provider "virtualbox" do |vb|
-        vb.cpus = opts[:cpus]
-        vb.memory = opts[:memory]
-      end
-      box.vm.provision "shell", path:"./install-kubernetes-dependencies.sh"
-      if box.vm.hostname == "master" then 
-        box.vm.provision "shell", path:"./configure-master-node.sh"
-      end
-      
-      if box.vm.hostname == "node-01" then ##TODO: create some regex to match worker hostnames
-        box.vm.provision "shell", path:"./configure-worker-nodes.sh"
-      end
-      if box.vm.hostname == "node-02" then ##TODO: create some regex to match worker hostnames
-        box.vm.provision "shell", path:"./configure-worker-nodes.sh"
-      end
-      if box.vm.hostname == "node-03" then ##TODO: create some regex to match worker hostnames
-        box.vm.provision "shell", path:"./configure-worker-nodes.sh"
-      end
+  # Control panel node
+  config.vm.define "master" do |cp_node|
+    cp_node.vm.hostname = "master"
+    cp_node.vm.network  :private_network,
+      ip: "172.16.8.10",
+      netmask: "255.255.255.0",
+      auto_config: true
+    
 
+    # Instala dependencias em todas as VMs
+    cp_node.vm.provision "shell", path:"./install-kubernetes-dependencies.sh"
+    cp_node.vm.provision "shell", path:"./configure-master-node.sh"
+    cp_node.vm.provision "shell", path:"./k8s-configure-lab.sh"
+
+    cp_node.vm.provider "virtualbox" do |v|
+      v.name = "master"
     end
   end
+
+
+  # Nodes
+  (1..NODES_COUNT).each do |i|
+    config.vm.define "node-#{i}" do |node|
+      node.vm.hostname = "node-#{i}"
+      node.vm.network  :private_network,
+        ip: "172.16.8.#{10 + i}",
+        netmask: "255.255.255.0",
+        auto_config: true
+      
+      
+        # Instala dependencias em todas as VMs
+      node.vm.provision "shell", path:"./install-kubernetes-dependencies.sh"
+      node.vm.provision "shell", path:"./configure-worker-nodes.sh"
+
+      node.vm.provider "virtualbox" do |v|
+        v.name = NODES_NAMES[i - 1]
+      end
+    end
+  end
+
 end

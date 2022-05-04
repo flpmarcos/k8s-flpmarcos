@@ -1,5 +1,5 @@
-# k8s-flpmarcos
-Estudos de k8s utilizando kubernetes local com kind no WSL (Debian)
+# k8s-flpmarcos - Lab
+K8S lab using vagrant (IAC)
 
 
 ## K8S -  TRAILHEAD
@@ -15,7 +15,7 @@ Estudos de k8s utilizando kubernetes local com kind no WSL (Debian)
 | Ingress - Definir sub-dominio para as aplicações   | ✅  |
 | Monitoramento - Criar ambiente (Grafana / Prometheus)  | ✅  |
 | Monitoramento - Config map grafana.ini   | ✅  |
-| CI/CD - Criar ambiente (Registry ✅ / Jenkins ✅)  |  ⌛  |
+| CI/CD - Criar ambiente (Registry ✅ / Jenkins ✅)  |  ✅  |
 | Filas - Criar Ambiente  (Rabbitmq / Kafka)  |  ⌛  |
 | VOIP - Criar Ambiente  (Kamailio / Asterisk)  |  ⌛  |
 | RANCHER - Orquestrar outros clusters  |  ⌛  |
@@ -23,19 +23,59 @@ Estudos de k8s utilizando kubernetes local com kind no WSL (Debian)
 | ISTIO - Service Mesh |  ⌛  |
 | IAC - Provisionar ambiente K8S usando Vagrant   |  ✅  |
 
-## KIND
 
-kind é utilizado para simular um ambiente kubernetes local usando container mais parecido com o ambiente de PRD possivel
+### Host packages requirements
+The host must have :
+* __Git__ to clone this repository (you can download and unzip too)
+* __Vagrant__ to handle virtual machines
+* __VirtualBox__ as Hypervisor
 
+
+## Usage
+## Clone the repo
+```sh
+# Clone the repo and change directory
+git clone git@github.com:thkevin/kubernetes_vms_lab.git
+
+# Get into the project directory
+cd kubernetes_vms_lab
 ```
-### Download the latest version of KinD
-curl -Lo ./kind https://github.com/kubernetes-sigs/kind/releases/download/{latest}/kind-linux-amd64
-### Make the binary executable
-chmod +x ./kind
-### Move the binary to your executable path
-sudo mv ./kind /usr/local/bin/
-```
 
+## VAGRANT
+
+To create VMs and bootstrap your kubernetes cluster
+
+`vagrant up`
+
+After creation of VMs is complete ssh into master and check kubernetes cluster status
+
+`vagrant ssh master`
+
+`kubectl get nodes`
+
+After deployment you can check your page with 
+
+`curl http://<worker-ip>:30080`
+
+Detroy the cluster
+
+`vagrant destroy [-f]`
+
+
+
+## WINDOWS virtual host 
+
+c:\WINDOWS\system32\drivers\etc\
+
+172.16.8.12 grafana.k8slocal.com
+172.16.8.12 prometheus.k8slocal.com
+172.16.8.12 jenkins.k8slocal.com
+172.16.8.12 registry.k8slocal.com
+172.16.8.12 ui.k8slocal.com
+172.16.8.12 demo.k8slocal.com
+
+
+# k8s-flpmarcos - Code Reference
 
 ## CLUSTER
 
@@ -58,48 +98,6 @@ k cluster-info --context kind-cluster-rancher
 kind delete cluster --name meucluster
 ```
 
-## VAGRANT
-
-# Usage
-
-To create VMs and bootstrap your kubernetes cluster
-
-`vagrant up`
-
-After creation of VMs is complete ssh into master and check kubernetes cluster status
-
-`vagrant ssh master`
-
-`kubectl get nodes`
-
-After deployment you can check your page with 
-
-`curl http://<worker-ip>:30080`
-
-
-## KUBECTL
-
-#### Instalação
-```
-curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.16.0/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
-
-windowsUser=$1
-
-mkdir -p ~/.kube
-ln -sf "/mnt/c/users/$windowsUser/.kube/config" ~/.kube/config
-
-kubectl version
-```
-
-## WINDOWS virtual host 
-
-c:\WINDOWS\system32\drivers\etc\
-
-172.16.8.12 grafana.k8slocal.com
-172.16.8.12 prometheus.k8slocal.com
-172.16.8.12 jenkins.k8slocal.com
 
 #### Alias - Para facilitar o trabalho
 
@@ -181,7 +179,6 @@ kubectl rollout undo deployment meudeployment
 ```
 
 
-
 ### Teste de stress
 EX: Limite no deployment
 
@@ -211,46 +208,6 @@ echo 'Z2lyb3BvcHMgc3RyaWd1cyBnaXJ1cw==' | base64 --decode
 
 
 
-
-## NAMESPACE
-### Monitoring - Prometheus e Grafana
-
-#### Criando namespace
-
-```
-kubectl create -f monitoring-namespace.yaml
-```
-
-#### PROMETHEUS
-```
-kubectl create -f k8s-prometheus/
-```
-host: prometheus.k8slocal.com
-
-#### GRAFANA
-```
-kubectl create -f k8s-grafana/
-```
-host: grafana.k8slocal.com
-Importe o dashboard do GrafanaLabs (https://grafana.com/grafana/dashboards/12740)
-
-#### NODE EXPORTER
-```
-kubectl apply -f k8s-node-exporter/
-```
-
-#### STATE METRICS
-```
-kubectl apply -f kube-state-metrics/
-```
-
-### DEVOPS-TOOLS 
-#### Criando namespace
-
-```
-kubectl create -f devops-tools-namespace.yaml
-```
-
 #### JENKINS
 ```
 kubectl create -f k8s-jenkins/
@@ -262,33 +219,6 @@ Obter Passoword
 ```
 kubectl get pods -n devops-tools
 kubectl exec {POD_NAME} cat /var/jenkins_home/secrets/initialAdminPassword
-```
-
-
-### MESSAGE-QUEUE 
-#### Criando namespace
-
-```
-kubectl create -f message-queue-namespace.yaml
-```
-
-#### RABBITMQ
-```
-kubectl create -f k8s-rabbitmq/
-```
-
-
-### VOIP - KAMAILIO / ASTERISK (BETA)
-
-#### Criando namespace
-
-```
-kubectl create -f voip-namespace.yaml
-```
-
-#### KAMAILIO / ASTERISK
-```
-kubectl create -f k8s-kamailio-asterisk/
 ```
 
 
