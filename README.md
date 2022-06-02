@@ -19,7 +19,7 @@ K8S lab using vagrant (IAC)
 | Filas - Criar Ambiente  (Rabbitmq / Kafka)  |  ⌛  |
 | VOIP - Criar Ambiente  (Kamailio / Asterisk)  |  ⌛  |
 | RANCHER - Orquestrar outros clusters  |  ⌛  |
-| TERRAFORM - Infra as Code |  ⌛  |
+| TERRAFORM - Infra as Code |  Migrado para -> https://github.com/flpmarcos/terraform-flpmarcos  |
 | ISTIO - Service Mesh |  ⌛  |
 | IAC - Provisionar ambiente K8S usando Vagrant   |  ✅  |
 
