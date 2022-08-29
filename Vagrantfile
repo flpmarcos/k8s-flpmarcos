@@ -4,7 +4,10 @@
 
 CP_NODE_COUNT = 1
 
-NODES_NAMES = ["node-1", "node-2", "node-3"]
+# NODES_NAMES = ["node-1", "node-2", "node-3"]
+
+NODES_NAMES = ["node-1"]
+
 NODES_COUNT = NODES_NAMES.size
 
 NODES_VM_NAMES = (1..NODES_COUNT).map{|i| "node-#{i}"}

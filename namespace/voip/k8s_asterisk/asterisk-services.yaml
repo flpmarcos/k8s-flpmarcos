@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: asterisk
+  namespace: voip
+  annotations:
+    service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
+spec:
+  selector:
+    component: asterisk
+  ports:
+    - name: sip
+      protocol: TCP
+      port: 5060
+    - name: ami
+      protocol: TCP
+      port: 5038
+    

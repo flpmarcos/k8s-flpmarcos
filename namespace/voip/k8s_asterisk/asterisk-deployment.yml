@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: asterisk
+  namespace: voip
+  labels:
+    component: asterisk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: asterisk
+  template:
+    metadata:
+      labels:
+        component: asterisk
+    spec:
+      volumes:
+        - name: config
+          emptyDir: {}
+        - name: custom
+          secret:
+            secretName: asterisk-config
+      containers:
+        - name: asterisk
+          image: flpmarcos/asterisk-k8s-deploy:latest
+          volumeMounts:
+            - name: config
+              mountPath: /etc/asterisk
+
+        
