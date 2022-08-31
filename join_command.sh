@@ -1,1 +1,1 @@
-kubeadm join 172.16.8.10:6443 --token 49e0mj.8extej6eo86fsccf     --discovery-token-ca-cert-hash sha256:232d69f1bce7bb8a9e91e6739a49eea47ef2199a7d7d06a86ad98e84cf7cd8ae 
+kubeadm join 172.16.8.10:6443 --token p9lapd.cuoe2eag9matm928     --discovery-token-ca-cert-hash sha256:5c224520646a36d06954f6a0815e4d26ef82e74336e6b82d9735fb13af08799c 

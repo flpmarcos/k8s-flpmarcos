@@ -4,28 +4,50 @@ metadata:
   name: asterisk
   namespace: voip
   labels:
-    component: asterisk
+    app: asterisk
 spec:
   replicas: 1
   selector:
     matchLabels:
-      component: asterisk
+      app: asterisk
   template:
     metadata:
+      name: asterisk
       labels:
-        component: asterisk
+        app: asterisk
     spec:
+      containers:
+      - name: asterisk
+        image : flpmarcos/asterisk13-centos
+        volumeMounts:
+          - name: config
+            mountPath: /etc/asterisk
+          - name: config
+            mountPath: /var/log/asterisk
+          - name: config
+            mountPath: /var/spool/asterisk
+          - name: config
+            mountPath: /var/lib/asterisk/sounds
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        env:
+        - name: ASTERISK_USER
+          value: root
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        - containerPort: 5060
+          name: sip
+          protocol: TCP
+        - containerPort: 5038
+          name: ami
+          protocol: TCP
       volumes:
         - name: config
           emptyDir: {}
-        - name: custom
-          secret:
-            secretName: asterisk-config
-      containers:
-        - name: asterisk
-          image: flpmarcos/asterisk-k8s-deploy:latest
-          volumeMounts:
-            - name: config
-              mountPath: /etc/asterisk
-
-        

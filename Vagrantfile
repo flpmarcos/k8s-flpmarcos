@@ -1,12 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-
-
 CP_NODE_COUNT = 1
 
-# NODES_NAMES = ["node-1", "node-2", "node-3"]
-
-NODES_NAMES = ["node-1"]
+NODES_NAMES = ["node-1", "node-2", "node-3"]
 
 NODES_COUNT = NODES_NAMES.size
 
@@ -16,11 +12,11 @@ Vagrant.require_version ">= 2.2.0"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "geerlingguy/ubuntu2004"
-  config.vm.box_version = "1.0.3"
+  config.vm.box_version = "1.0.4"
   
   # Shared virtualbox settings
   config.vm.provider "virtualbox" do |v|
-    v.memory = 2048
+    v.memory = 3048
     v.cpus = 1
   end
 
@@ -55,7 +51,7 @@ Vagrant.configure("2") do |config|
         auto_config: true
       
       
-        # Instala dependencias em todas as VMs
+      # Instala dependencias em todas as VMs
       node.vm.provision "shell", path:"./install-kubernetes-dependencies.sh"
       node.vm.provision "shell", path:"./configure-worker-nodes.sh"
 

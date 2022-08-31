@@ -30,6 +30,25 @@ spec:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/name: ingress-nginx
   type: LoadBalancer
+  ports:
+    - name: sip
+      port: 5060
+      targetPort: 5060
+      protocol: TCP
+    - name: ami
+      port: 5038
+      targetPort: 5038
+      protocol: TCP
+    - appProtocol: http
+      name: http
+      port: 80
+      protocol: TCP
+      targetPort: http
+    - appProtocol: https
+      name: https
+      port: 443
+      protocol: TCP
+      targetPort: https
   spec:
   spec:
   externalIPs:

@@ -72,6 +72,12 @@ spec:
         - containerPort: 8443
           name: webhook
           protocol: TCP
+        - containerPort: 5060
+          name: sip
+          protocol: TCP
+        - containerPort: 5038
+          name: ami
+          protocol: TCP
         readinessProbe:
           failureThreshold: 3
           httpGet:
