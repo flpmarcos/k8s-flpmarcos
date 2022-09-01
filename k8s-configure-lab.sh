@@ -5,6 +5,10 @@ vagrant_dir="/vagrant/namespace"
 run_namespace ()
 {
 
+## RUN VOIP ENV
+kubectl apply -f $vagrant_dir/voip/k8s-asterisk
+kubectl apply -f $vagrant_dir/voip/voip-namespace.yaml
+
 ## RUN MONITORING ENV
 kubectl apply -f $vagrant_dir/monitoring/monitoring-namespace.yaml
 kubectl apply -f $vagrant_dir/monitoring/k8s-grafana

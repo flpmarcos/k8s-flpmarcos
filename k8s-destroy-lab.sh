@@ -5,6 +5,10 @@ vagrant_dir="/vagrant/namespace"
 destroy_all_namespace ()
 {
 
+## RUN VOIP ENV
+kubectl delete -f $vagrant_dir/voip/k8s-asterisk
+kubectl delete -f $vagrant_dir/voip/voip-namespace.yaml
+
 ## RUN MONITORING ENV
 kubectl delete -f $vagrant_dir/monitoring/k8s-grafana
 kubectl delete -f $vagrant_dir/monitoring/k8s-node-exporter

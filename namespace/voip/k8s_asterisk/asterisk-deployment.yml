@@ -19,15 +19,15 @@ spec:
       containers:
       - name: asterisk
         image : flpmarcos/asterisk13-centos
-        volumeMounts:
-          - name: config
-            mountPath: /etc/asterisk
-          - name: config
-            mountPath: /var/log/asterisk
-          - name: config
-            mountPath: /var/spool/asterisk
-          - name: config
-            mountPath: /var/lib/asterisk/sounds
+        # volumeMounts:
+        #   - name: config
+        #     mountPath: /etc/asterisk
+        #   - name: config
+        #     mountPath: /var/log/asterisk
+        #   - name: config
+        #     mountPath: /var/spool/asterisk
+        #   - name: config
+        #     mountPath: /var/lib/asterisk/sounds
         resources:
           requests:
             memory: "64Mi"
