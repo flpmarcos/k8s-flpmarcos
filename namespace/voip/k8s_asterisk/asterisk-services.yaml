@@ -14,12 +14,67 @@ spec:
     port: 5060
     targetPort: 5060
     nodePort: 30061 
-    protocol: TCP
+    protocol: UDP
   - name: ami
     port: 5038
     targetPort: 5038
     nodePort: 30062
     protocol: TCP
+  - name: trafego00
+    port: 10000
+    targetPort: 10000
+    nodePort: 30063
+    protocol: UDP
+  - name: trafego01
+    port: 10001
+    targetPort: 10001
+    nodePort: 30064
+    protocol: UDP
+  - name: trafego02
+    port: 10002
+    targetPort: 10002
+    nodePort: 30065
+    protocol: UDP
+  - name: trafego03
+    port: 10003
+    targetPort: 10003
+    nodePort: 30066
+    protocol: UDP
+  - name: trafego04
+    port: 10004
+    targetPort: 10004
+    nodePort: 30067
+    protocol: UDP
+  - name: trafego05
+    port: 10005
+    targetPort: 10005
+    nodePort: 30068
+    protocol: UDP
+  - name: trafego06
+    port: 10006
+    targetPort: 10006
+    nodePort: 30069
+    protocol: UDP
+  - name: trafego07
+    port: 10007
+    targetPort: 10007
+    nodePort: 30070
+    protocol: UDP
+  - name: trafego08
+    port: 10008
+    targetPort: 10008
+    nodePort: 30071
+    protocol: UDP
+  - name: trafego09
+    port: 10009
+    targetPort: 10009
+    nodePort: 30072
+    protocol: UDP
+  - name: trafego10
+    port: 10010
+    targetPort: 10010
+    nodePort: 30073
+    protocol: UDP
   externalIPs:
     - 172.16.8.11
     - 172.16.8.10

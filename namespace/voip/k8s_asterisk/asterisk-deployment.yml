@@ -44,10 +44,43 @@ spec:
           protocol: TCP
         - containerPort: 5060
           name: sip
-          protocol: TCP
+          protocol: UDP
         - containerPort: 5038
           name: ami
           protocol: TCP
+        - containerPort: 10000
+          name: trafego00
+          protocol: UDP
+        - containerPort: 10001
+          name: trafego01
+          protocol: UDP
+        - containerPort: 10002
+          name: trafego02
+          protocol: UDP
+        - containerPort: 10003
+          name: trafego03
+          protocol: UDP
+        - containerPort: 10004
+          name: trafego04
+          protocol: UDP
+        - containerPort: 10005
+          name: trafego05
+          protocol: UDP
+        - containerPort: 10006
+          name: trafego06
+          protocol: UDP
+        - containerPort: 10007
+          name: trafego07
+          protocol: UDP
+        - containerPort: 10008
+          name: trafego08
+          protocol: UDP
+        - containerPort: 10009
+          name: trafego09
+          protocol: UDP
+        - containerPort: 10010
+          name: trafego10
+          protocol: UDP
       volumes:
         - name: config
           emptyDir: {}
